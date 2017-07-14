@@ -3,3 +3,9 @@ version: "2"
 services: 
   ubuntu:
     build: .
+    volumes: 
+      - .:/openwrt
+    working_dir: /openwrt
+    environment:
+      IMAGE_BUILDER_PATH: http://downloads.lede-project.org/releases/17.01.2/targets/ar71xx/nand/lede-imagebuilder-17.01.2-ar71xx-nand.Linux-x86_64.tar.xz
+    
