@@ -29,3 +29,16 @@ vi ./imagebuilder/target/linux/ar71xx/image/legacy.mk
 ```sh
 make image PROFILE=WNDR4300V1 PACKAGES="libiwinfo-lua liblua libubus-lua libuci-lua lua luci luci-app-firewall luci-base luci-lib-ip luci-lib-nixio luci-mod-admin-full luci-proto-ipv6 luci-proto-ppp luci-theme-bootstrap rpcd uhttpd uhttpd-mod-ubus wget luci-app-ddns luci-app-sqm ca-certificates"
 ```
+
+- Update header and checksum
+```sh
+vi imagebuilder/bin/targets/ar71xx/nand/lede-17.01.2-ar71xx-nand-wndr4300-ubi-factory.img
+```
+- open hex edit mode `:%!xxd`
+- update header WNDR4300 to WNDR4300SW
+- remove last byte
+```sh
+./appendsum imagebuilder/bin/targets/ar71xx/nand/lede-17.01.2-ar71xx-nand-wndr4300-ubi-factory.img appended.img
+```
+
+
