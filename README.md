@@ -34,11 +34,15 @@ make image PROFILE=WNDR4300V1 PACKAGES="libiwinfo-lua liblua libubus-lua libuci-
 ```sh
 vi imagebuilder/bin/targets/ar71xx/nand/lede-17.01.2-ar71xx-nand-wndr4300-ubi-factory.img
 ```
-- open hex edit mode `:%!xxd`
-- update header WNDR4300 to WNDR4300SW
-- remove last byte
+- Open hex edit mode `:%!xxd`
+- Update header WNDR4300 to WNDR4300SW
+- Remove last byte
 ```sh
 ./appendsum imagebuilder/bin/targets/ar71xx/nand/lede-17.01.2-ar71xx-nand-wndr4300-ubi-factory.img appended.img
 ```
 
+Flash firmware
+- Enter router recovery mode (hold reset key)
+- Set ip `192.168.1.1`, netmask `255.255.255.0`, gateway `192.168.1.1`
+- Open tftp and flash
 
